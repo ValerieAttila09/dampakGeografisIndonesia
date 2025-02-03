@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TAILWIND & FLOWBITE -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- ALPINE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <!-- STYLING -->
+    <style>
+        /* Montserrat Font */
+        .montserrat-thin {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+        }
+        .montserrat-regular {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .montserrat-medium {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .montserrat-semibold {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        .montserrat-bold {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .montserrat-extrabold {
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+
+        /* Quicksand Font */
+        .quicksand-thin {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+        }
+        .quicksand-regular {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .quicksand-medium {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .quicksand-semibold {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        .quicksand-bold {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .quicksand-extrabold {
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Main Styling */
+        * {
+            /* border: 1px solid red !important; */
+        }
+
+        #beranda {
+            background: url('images/beranda.jpg') center no-repeat;
+            background-size: cover;
+        }
+        #dampak {
+            background: url('images/dampak.jpg') center no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {},
+                }
+            }
+        }
+    </script>
+</head>
+<body class="w-full bg-slate-900 overflow-x-hidden">
+    <div id="beranda" class="grid">
+        <div class="w-full px-3 py-4 flex justify-start items-center ">
+            <h1 data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in-out" class="max-w-80 text-slate-100 text-wrap text-3xl montserrat-extrabold">DAMPAK POSITIF & NEGATIF LETAK GEOGRAFIS <span class="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-teal-500">INDONESIA</span></h1>
+        </div>
+        <div class="grid px-10 py-1">
+            <ul>
+                <li data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in-out"><a class="text-lg text-slate-200 quicksand-medium hover:text-slate-300 quicksand-semibold transition-all" href="#">Bidang Ekonomi</a></li>
+                <li data-aos="fade-right" data-aos-duration="800" data-aos-delay="100" data-aos-easing="ease-in-out"><a class="text-lg text-slate-200 quicksand-medium hover:text-slate-300 quicksand-semibold transition-all" href="#">Bidang Sosial & Budaya</a></li>
+                <li data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-easing="ease-in-out"><a class="text-lg text-slate-200 quicksand-medium hover:text-slate-300 quicksand-semibold transition-all" href="#">Bidang Politik</a></li>
+            </ul>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="w-full justify-center items-center flex">
+            <a href="#" data-aos="flip-right" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-delay="300" class="px-9 py-2 bg-blue-500 text-slate-200 quicksand-semibold text-lg rounded-lg hover:bg-gradient-to-r hover:from-violet-500 hover:to-cyan-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-slate-800 transition duration-600 ease-in">Next</a>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="w-full px-3 py-2 flex justify-end items-center">
+            <h3 class="text-lg quicksand-semibold text-slate-300">Made by <a class="quicksand-bold hover:text-slate-500 transition-all" href="https://github.com/ValerieAttila09">Valerie</a></h3>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-6 lg:max-w-[817px]">
+        <h2 class="text-slate-100 text-3xl montserrat-bold">Pendahuluan</h2>
+        <br />
+        <p class="quicksand-medium text-slate-300 mb-2">
+            Letak geografis Indonesia yang berada di posisi silang antara dua benua (Asia dan Australia) serta dua samudra (Hindia dan Pasifik) memberikan berbagai dampak positif dan negatif dalam bidang ekonomi, sosial, budaya, dan politik.
+        </p>
+        <img class="float-right" src="images/indonesia.png" alt="" width="120" height="120" />
+        <p class="quicksand-medium text-slate-300 mb-2">
+            Berdasarkan catatan koordinat, diketahui bahwa letak astronomis Indonesia adalah <span class="text-violet-400">6° LU - 11° LS dan 95° BT - 141° BT </span>.
+        </p>
+        <p class="quicksand-medium text-slate-300 mb-2">
+            Iklim di Indonesia adalah iklim <span class="text-violet-400">tropis</span> karena letaknya yang berada di garis khatulistiwa. Iklim tropis memiliki ciri-ciri suhu yang hangat dan curah hujan yang tinggi.
+        </p>
+        <br />
+        <h2 class="text-sky-400 mb-2 text-xl montserrat-bold">Data Cuaca Indonesia (2022)</h2>
+        <div class="mx-auto max-w-[765px] rounded-lg bg-slate-950 p-3">
+            <h3 class="text-lg montserrat-semibold text-center text-slate-200">Suhu</h3>
+            <br />
+            <canvas data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-out" id="temperatureChart"></canvas>
+        </div>
+        <br />
+        <div class="mx-auto max-w-[765px] rounded-lg bg-slate-950 p-3">
+            <h3 class="text-lg montserrat-semibold text-center text-slate-200">Suhu</h3>
+            <br />
+            <canvas data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-out" id="rainfallChart"></canvas>
+        </div>
+        <br />
+        <br />
+    </div>
+
+    <div id="dampak" class="w-full flex justify-center items-center">
+        <div class="w-full h-[540px]"></div>
+        <h1 data-aos="fade-right" data-aos-duration="600" data-aos-easing="ease-in-out" class="text-center text-5xl montserrat-extrabold text-slate-100">DAMPAK <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-400">POSITIF</span> & <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-600">NEGATIF</span></h1>
+        <div class="w-full h-[540px]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-6 lg:max-w-[817px]">
+        <img class="float-right p-2" src="images/info.png" alt="" height="60" width="60" />
+        <h1 class="my-3 text-2xl text-slate-100 montserrat-extrabold">DAMPAK-DAMPAK YANG TERJADI</h1>
+        <br />
+        <p class="text-slate-300 quicksand-medium">
+            Jika negara indonesia berada pada posisi silang, tidak mungkin tidsk ada dampak yang terjadi pada negara kita ini. berikut ini adalah dampak-dampak yang terjadi pada indonesia.
+        </p>
+        <br />
+        <br />
+
+        <div x-data="{openEkonomi: false, ekonomiLabel: 'Dampak Positif & Negatif Bidang Ekonomi'}" class="w-full items-center grid rounded-xl p-3 bg-slate-950">
+            <h1 class="text-center text-2xl text-sky-400 quicksand-bold">Bidang Ekonomi</h1>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Positif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Jalur Perdagangan Internasional</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Destinasi Pariwisata</span>
+                </li>
+            </div>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Negatif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Persaingan Global yang Tidak Sehat</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Adanya Pasar Gelap</span>
+                </li>
+            </div>
+            <br />
+
+            <button @click="openEkonomi = !openEkonomi" class="block mx-auto py-2 px-4 rounded-xl bg-slate-800 text-slate-200 quicksand-bold hover:bg-stone-800 transition-all" type="button">Selengkapnya ›››</button>
+
+            <div
+                x-show="openEkonomi"
+                x-transition:enter="transition-all duration-500 ease-in-out"
+                x-transition:enter-start="scale-0 opacity-0"
+                x-transition:enter-end="scale-100 opacity-100"
+                x-transition:leave="transition-all duration-500 ease-in-out"
+                x-transition:leave-start="scale-100 opacity-100"
+                x-transition:leave-end="scale-0 opacity-0"
+                class="fixed top-0 left-0 w-full h-full overflow-x-hidden overflow-y-scroll bg-slate-800 z-10">
+                <div class="w-full bg-slate-900 border border-t-0 border-l-0 border-r-0 border-slate-600 p-2 flex justify-start items-center">
+                    <h1 class="text-2xl quicksand-semibold text-slate-200">Rincian Mengenai <span x-text="ekonomiLabel"></span></h1>
+                </div>
+                <div class="container w-full p-3">
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Positif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Jalur Perdagangan Internasional</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Posisi strategis Indonesia menjadikannya sebagai jalur lalu lintas perdagangan internasional, seperti melalui Selat Malaka yang merupakan salah satu jalur pelayaran tersibuk di dunia. Hal ini mempermudah proses ekspor dan impor serta meningkatkan pendapatan negara melalui tarif masuk.
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Destinasi Pariwisata</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Keindahan alam dan keragaman budaya Indonesia menarik wisatawan mancanegara, khususnya dari negara-negara tetangga, yang berkontribusi pada peningkatan devisa negara.
+                        </p>
+                    </div>
+
+                    <br />
+
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Negatif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Persaingan Global yang Tidak Sehat</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Letak strategis Indonesia dengan perairan yang luas membuatnya rentan terhadap pencurian sumber daya laut oleh pihak asing melalui cara ilegal.
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Adanya Pasar Gelap</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Kepadatan lalu lintas perdagangan internasional di wilayah Indonesia dapat dimanfaatkan oleh penyelundup untuk memasukkan barang secara ilegal, yang merugikan perekonomian negara.
+                        </p>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <div class="p-2 flex fixed bottom-0 justify-end items-center w-full bottom-0 bg-slate-900 border border-r-0 border-l-0 border-b-0 border-slate-600">
+                    <button @click="openEkonomi = false" type="button" class="mr-4 rounded-lg bg-sky-400 quicksand-semibold text-slate-200 px-3 py-2 hover:bg-teal-500">Ok, Sip!</button>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div x-data="{openSosial: false, sosialLabel: 'Dampak Positif & Negatif Di Bidang Sosial & Budaya'}" class="w-full grid items-center rounded-xl p-3 bg-slate-950">
+            <h1 class="text-center text-2xl text-sky-400 quicksand-bold">Bidang Sosial & Budaya</h1>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Positif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Keberagaman Budaya</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Perkembangan Ilmu Pengetahuan dan Teknologi</span>
+                </li>
+            </div>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Negatif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Hilangnya Identitas Budaya</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Perubahan Gaya Hidup</span>
+                </li>
+            </div>
+            <br />
+
+            <button x-on:click="openSosial = !openSosial" class="block mx-auto py-2 px-4 rounded-xl bg-slate-800 text-slate-200 quicksand-bold hover:bg-stone-800 transition-all" type="button">Selengkapnya ›››</button>
+
+            <div
+                x-show="openSosial"
+                x-transition:enter="transition-all duration-500 ease-in-out"
+                x-transition:enter-start="scale-0 opacity-0"
+                x-transition:enter-end="scale-100 opacity-100"
+                x-transition:leave="transition-all duration-500 ease-in-out"
+                x-transition:leave-start="scale-100 opacity-100"
+                x-transition:leave-end="scale-0 opacity-0"
+                class="fixed top-0 left-0 w-full h-full overflow-x-hidden overflow-y-scroll bg-slate-800 z-10">
+                <div class="w-full bg-slate-900 border border-t-0 border-l-0 border-r-0 border-slate-600 p-2 flex justify-start items-center">
+                    <h1 class="text-2xl quicksand-semibold text-slate-200">Rincian Mengenai <span x-text="sosialLabel"></span></h1>
+                </div>
+                <div class="container w-full p-3">
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Positif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Keberagaman Budaya</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Interaksi dengan berbagai bangsa yang melewati atau berhubungan dengan Indonesia menyebabkan terjadinya akulturasi budaya, memperkaya khasanah budaya nasional.
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Perkembangan Ilmu Pengetahuan dan Teknologi</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Posisi silang Indonesia memudahkan masuknya teknologi dan kemajuan dari negara lain, yang dapat dimanfaatkan untuk meningkatkan kualitas hidup masyarakat.
+                        </p>
+                    </div>
+
+                    <br />
+
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Negatif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Hilangnya Identitas Budaya</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Masuknya budaya asing secara masif dapat mengancam kelestarian budaya lokal, menyebabkan generasi muda lebih mengenal budaya asing daripada budaya sendiri.
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Perubahan Gaya Hidup</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Pengaruh budaya asing dapat mengubah pola pikir dan gaya hidup masyarakat menjadi lebih konsumtif dan individualistis, yang bertentangan dengan nilai-nilai tradisional Indonesia.
+                        </p>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <div class="p-2 fixed bottom-0  flex justify-end items-center w-full bottom-0 bg-slate-900 border border-r-0 border-l-0 border-b-0 border-slate-600">
+                    <button @click="openSosial = false" type="button" class="mr-4 rounded-lg bg-sky-400 quicksand-semibold text-slate-200 px-3 py-2 hover:bg-teal-500">Ok, Sip!</button>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div x-data="{openPolitik: false, politikLabel: 'Dampak Positif & Negatif Di Bidang Politik'}" class="mx-auto w-full grid items-center rounded-xl p-3 bg-slate-950">
+            <h1 class="text-center text-2xl text-sky-400 quicksand-bold">Bidang Politik</h1>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Positif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Kerja Sama Internasional</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="bg-teal-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-teal-500">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Diplomasi Global</span>
+                </li>
+            </div>
+            <br />
+            <h2 class="text-start text-lg text-blue-500 quicksand-semibold">Dampak Negatif</h2>
+            <div class="grid gap-2 p-2">
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Ancaman Keamanan</span>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-red-600 flex justify-center items-center p-1">
+                        <div class="w-4 h-[3px] absolute rounded-full bg-red-400"></div>
+                    </div>
+                    <span class="text-slate-200 quicksand-medium">Tekanan Politik Asing</span>
+                </li>
+            </div>
+            <br />
+            
+            <button @click="openPolitik = !openPolitik" class="block mx-auto py-2 px-4 rounded-xl bg-slate-800 text-slate-200 quicksand-bold hover:bg-stone-800 transition-all" type="button">Selengkapnya ›››</button>
+            
+            <div
+                x-show="openPolitik"
+                x-transition:enter="transition-all duration-500 ease-in-out"
+                x-transition:enter-start="scale-0 opacity-0"
+                x-transition:enter-end="scale-100 opacity-100"
+                x-transition:leave="transition-all duration-500 ease-in-out"
+                x-transition:leave-start="scale-100 opacity-100"
+                x-transition:leave-end="scale-0 opacity-0"
+                class="fixed top-0 left-0 w-full h-full overflow-x-hidden overflow-y-scroll bg-slate-800 z-10">
+                <div class="w-full bg-slate-900 border border-t-0 border-l-0 border-r-0 border-slate-600 p-2 flex justify-start items-center">
+                    <h1 class="text-2xl quicksand-semibold text-slate-200">Rincian Mengenai <span x-text="politikLabel"></span></h1>
+                </div>
+                <div class="container w-full p-3">
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Positif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Kerja Sama Internasional</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Letak strategis Indonesia mendorong terbentuknya kerja sama politik dengan negara-negara lain, seperti dalam kerangka ASEAN, untuk menjaga stabilitas kawasan. 
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Peran dalam Diplomasi Global</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Sebagai negara yang berada di persimpangan dunia, Indonesia memiliki posisi penting dalam diplomasi internasional dan dapat berperan sebagai mediator dalam konflik regional.
+                        </p>
+                    </div>
+
+                    <br />
+
+                    <h2 class="text-blue-500 quicksand-bold text-2xl">Dampak Negatif</h2>
+                    <br />
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">Ancaman Keamanan</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Posisi strategis juga menjadikan Indonesia rentan terhadap ancaman seperti imigrasi ilegal, penyelundupan, dan infiltrasi ideologi asing yang dapat mengganggu stabilitas politik dalam negeri.
+                        </p>
+                    </div>
+                    <div class="grid px-3 py-1">
+                        <h3 class="text-sky-400 quicksand-semibold text-lg">qTekanan Politik Asing</h3>
+                        <p class="text-slate-300 quicksand-medium">
+                            Keterlibatan dalam dinamika politik global dapat menyebabkan Indonesia menghadapi tekanan dari negara-negara besar untuk mengikuti agenda politik mereka, yang mungkin tidak sejalan dengan kepentingan nasional.
+                        </p>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <div class="p-2 fixed bottom-0 flex justify-end items-center w-full bottom-0 bg-slate-900 border border-r-0 border-l-0 border-b-0 border-slate-600">
+                    <button @click="openPolitik = false" type="button" class="mr-4 rounded-lg bg-sky-400 quicksand-semibold text-slate-200 px-3 py-2 hover:bg-teal-500">Ok, Sip!</button>
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <div class="relative bottom-0 w-full bg-slate-950 py-8 flex justify-center items-center flex-col">
+        <span class="text-lg quicksand-medium text-slate-300">Hak Cipta dan Kebijakan Privasi Berlaku</span>
+        <span class="text-md quicksand-regular text-slate-400">&copy; 2025, Valerie Attila Al-Fath</span>
+    </div>
+
+    <script>
+        // Data Suhu Rata-rata per Bulan di Indonesia (2022)
+        const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+        const avgTemperature = [26.5, 26.8, 27.0, 27.3, 27.5, 27.6, 27.8, 27.9, 27.7, 27.4, 27.1, 26.8]; // Dalam °C
+
+        // Data Curah Hujan Rata-rata per Bulan (2022) dalam mm
+        const avgRainfall = [280, 250, 230, 200, 180, 150, 140, 160, 240, 300, 350, 400];
+
+        // Chart Suhu (Line Chart)
+        const tempCtx = document.getElementById("temperatureChart").getContext("2d");
+        new Chart(tempCtx, {
+            type: "line",
+            data: {
+                labels: months,
+                datasets: [{
+                    label: "Suhu Rata-rata (°C)",
+                    data: avgTemperature,
+                    borderColor: "yellow",
+                    backgroundColor: "rgba(194, 179, 0, 0.255)",
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+
+        // Chart Curah Hujan (Bar Chart)
+        const rainCtx = document.getElementById("rainfallChart").getContext("2d");
+        new Chart(rainCtx, {
+            type: "bar",
+            data: {
+                labels: months,
+                datasets: [{
+                    label: "Curah Hujan (mm)",
+                    data: avgRainfall,
+                    backgroundColor: "cyan"
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
